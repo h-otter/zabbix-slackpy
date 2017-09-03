@@ -14,7 +14,7 @@ You do not need to install any libraries or packages.
 
 ### Place this scripts
 
-In generaly, place `slack.py` on `/usr/lib/zabbix/alertscripts/`
+In generaly, place `src/slack.py` on `/usr/lib/zabbix/alertscripts/`
 
 ### On media types
 
