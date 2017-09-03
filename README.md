@@ -1,12 +1,14 @@
 # slack.py
 
+`slack.py` is one of zabbix alertscripts to send alert message for slack without any libraries.
+
+![](img/on_slack.png)
+
 ## Requirements
 
-You don't need install any libraries and packages.
+You do not need to install any libraries or packages.
 
-- python 2/3
-  - urllib
-  - json
+- work on python 2/3
 
 ## Usage
 
@@ -14,18 +16,18 @@ You don't need install any libraries and packages.
 
 In generaly, place `slack.py` on `/usr/lib/zabbix/alertscripts/`
 
-### Media types
+### On media types
 
-Set parameter like this image.
+Set 2 parameters.
 
 - `{ALERT.SENDTO}`
 - `{ALERT.MESSAGE}`
 
 ![](img/media_type.png)
 
-### Actions
+### On actions
 
-Set default message like this picture.
+Set default message.
 
 ```json
 {
@@ -40,9 +42,11 @@ Set default message like this picture.
 }
 ```
 
+> `TRIGGER.URL` do not work well. Setting your zabbix dashboard page is recommended.
+
 ![](img/actions.png)
 
-### User profile/Media
+### On user profile/Media
 
 Set slack media and send to slack [incoming webhook URL](https://api.slack.com/incoming-webhooks).
 
@@ -50,7 +54,9 @@ Set slack media and send to slack [incoming webhook URL](https://api.slack.com/i
 
 ### Verify
 
-You can verify action results on [Action log](https://www.zabbix.com/documentation/3.0/manual/web_interface/frontend_sections/reports/action_log).
+Check your hooked slack channel!!
+
+If it do not work well, you can check how to pass arguments on [Action log](https://www.zabbix.com/documentation/3.0/manual/web_interface/frontend_sections/reports/action_log).
 
 ## LICENSE
 

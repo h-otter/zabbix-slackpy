@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
+# Repository: https://github.com/h-otter/zabbix-slackpy
 
-import urllib
 from json import loads
 from json import dumps
 from sys import argv
@@ -75,11 +75,16 @@ def send_trigger(message, slack_hook):
 
     value = dumps(payload).encode("utf-8")
     headers = {'Content-type':'application/json'}
-    req = urllib.request.Request(slack_hook,
-                                 data=value,
-                                 headers=headers)
-    with urllib.request.urlopen(req) as response:
-        return response.read()
+
+    try:
+        import urllib2 as urllib_req
+    except ImportError:
+        import urllib.request as urllib_req
+
+    req = urllib_req.Request(slack_hook,
+                             data=value,
+                             headers=headers)
+    return urllib_req.urlopen(req).read()
 
 
 if __name__ == "__main__":
