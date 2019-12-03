@@ -95,5 +95,9 @@ if __name__ == "__main__":
         - {ALERT.MESSAGE}
     """
     argvs = argv
-    loaded = loads(argvs[2])
-    send_trigger(loaded, argvs[1])
+    if len(argvs) < 3:
+        print("\nToo few arguments -- requires: (slack_hook message). Example console run:\n")
+        print("""python slack.py https://hooks.slack.com/services/SLACKHOSTID '{ "date": "2020-01-01 / 00:00:01", "host": "times.square", "name": "NewYears", "url": "https://www.timeanddate.com/countdown/newyear", "status": "PROBLEM", "triage": "Warning", "item_name": "Countdown Clock", "item_value": "Almost there" }' """ + "\n")
+    else:
+        loaded = loads(argvs[2])
+        send_trigger(loaded, argvs[1])
